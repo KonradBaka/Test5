@@ -1,0 +1,11 @@
+[ {
+  "radius" : 3.0,
+  "type" : "circle"
+}, {
+  "side" : 4.0,
+  "type" : "square"
+}, {
+  "width" : 5.0,
+  "height" : 6.0,
+  "type" : "rectangle"
+} ]
