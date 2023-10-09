@@ -2,20 +2,17 @@ package pl.kurs.testapp.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import pl.kurs.testapp.model.Circle;
 import pl.kurs.testapp.model.Rectangle;
 import pl.kurs.testapp.model.Shape;
 import pl.kurs.testapp.model.Square;
-import pl.kurs.testapp.service.ShapeFactory;
+import pl.kurs.testapp.model.ShapeFactory;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 public class ShapeFactoryTest {
 
@@ -70,7 +67,7 @@ public class ShapeFactoryTest {
                 shapeFactory.createRectangle(5, 6)
         );
 
-        Optional<Shape> largestAreaShape = ShapeFactory.findShapeWithLargestArea(shapes);
+        Optional<Shape> largestAreaShape = ShapeService.findShapeWithLargestArea(shapes);
 
         assertTrue(largestAreaShape.isPresent());
         assertSame(shapes.get(2), largestAreaShape.get());
@@ -84,7 +81,7 @@ public class ShapeFactoryTest {
                 shapeFactory.createRectangle(5, 6)
         );
 
-        Optional<Shape> largestPerimeterShape = ShapeFactory.findShapeWithLargestPerimeter(shapes, "rectangle");
+        Optional<Shape> largestPerimeterShape = ShapeService.findShapeWithLargestPerimeter(shapes, "rectangle");
 
         assertTrue(largestPerimeterShape.isPresent());
         assertSame(shapes.get(2), largestPerimeterShape.get());
@@ -100,9 +97,9 @@ public class ShapeFactoryTest {
 
         String filePath = "shapes.json";
 
-        ShapeFactory.exportShapesToJson(shapes, filePath);
+        ShapeService.exportShapesToJson(shapes, filePath);
 
-        List<Shape> importedShapes = ShapeFactory.importShapesFromJson(filePath);
+        List<Shape> importedShapes = ShapeService.importShapesFromJson(filePath);
 
         assertEquals(shapes.size(), importedShapes.size());
 

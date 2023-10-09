@@ -1,12 +1,15 @@
 package pl.kurs.testapp.model;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 public class Circle implements Shape{
     private double radius;
 
-    public Circle() {
+    Circle() {
     }
 
-    public Circle(double radius) {
+    Circle(double radius) {
         this.radius = radius;
     }
 
@@ -28,6 +31,7 @@ public class Circle implements Shape{
     public double getRadius() {
         return radius;
     }
+
 
     @Override
     public String toString() {

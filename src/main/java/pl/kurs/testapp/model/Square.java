@@ -1,13 +1,12 @@
 package pl.kurs.testapp.model;
 
-public class Square implements Shape{
-    private  double side;
+public class Square implements Shape {
+    private double side;
 
-    public Square() {
+    Square() {
     }
 
-
-    public Square(double side) {
+    Square(double side) {
         this.side = side;
     }
 

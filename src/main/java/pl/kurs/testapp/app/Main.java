@@ -4,11 +4,11 @@ import pl.kurs.testapp.model.Circle;
 import pl.kurs.testapp.model.Rectangle;
 import pl.kurs.testapp.model.Shape;
 import pl.kurs.testapp.model.Square;
-import pl.kurs.testapp.service.ShapeFactory;
+import pl.kurs.testapp.model.ShapeFactory;
+import pl.kurs.testapp.service.ShapeService;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class Main {
@@ -18,6 +18,8 @@ public class Main {
         System.out.println("Zdałem test !");
         System.out.println();
         System.out.println();
+
+
 
         ShapeFactory shapeFactory = new ShapeFactory();
 
@@ -38,16 +40,17 @@ public class Main {
         shapes.add(c2);
 
 
-        System.out.println("Figura z największym poelm: " + ShapeFactory.findShapeWithLargestArea(shapes));
+        System.out.println("Figura z największym poelm: " + ShapeService.findShapeWithLargestArea(shapes));
         System.out.println("---------------------------------");
-        System.out.println("Figura z najwikszym obwoedem: " + ShapeFactory.findShapeWithLargestPerimeter(shapes, "rectangle"));
+        System.out.println("Figura z najwikszym obwoedem: " + ShapeService.findShapeWithLargestPerimeter(shapes,
+                "rectangle"));
         System.out.println("---------------------------------");
 
 
         try {
-            ShapeFactory.exportShapesToJson(shapes, "src/main/resources/newshapes.json");
+//            ShapeService.exportShapesToJson(shapes, "src/main/resources/newshapes.json");
 
-            List<Shape> shapes2 = ShapeFactory.importShapesFromJson("src/main/resources/shapestomake.json");
+            List<Shape> shapes2 = ShapeService.importShapesFromJson("src/main/resources/shapestomake.json");
             System.out.println(shapes2);
         } catch (IOException e) {
             throw new RuntimeException(e);
